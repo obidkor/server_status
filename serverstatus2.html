@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w    3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+  <html>
+  <head>
+      <!--[if lte IE 8]><SCRIPT src='source/excanvas.js'></script><![endif]--><SCRIPT src='./ChartNew/ChartNew.js'></script>
+       <title>KOREA POLYTECHS</title>
+   <script>
+           function refresh_start(){
+                  location.href='serverstatus2.html'
+          }
+  </script>
+ 
+  </head>
+ 
+  <body id="wrapBody" class="container" >
+ 
+  <center>
+ 
+  <h1><table><tr><td> STATUS OF KOPOSW00<td></tr></table></h1>
+ 
+  <SCRIPT>
+ 
+
+
+CPU_FREE=100.00;
+CPU_USED=0;
+MEM_FREE=1195688;
+MEM_USED=65380;
+DSK_FREE=29662704;
+DSK_USED=2069136;
+
+defCanvasWidth=1200;
+defCanvasHeight=700;
+
+var mydata1 =   [
+    {
+   		value : CPU_FREE, 
+		color: "rgba(175,175,175,1)",
+		title : "CPU Idle: " + CPU_FREE
+   	},
+  	{
+  		value : CPU_USED, 
+		color: "rgba(255,34,34,1)",
+		title : "CPU Used: " + CPU_USED
+  	 }
+];
+
+var mydata2 =   [
+    {
+   		value : MEM_FREE, 
+		color: "rgba(175,175,175,1)",
+		title : "Memory Free: " + MEM_FREE
+   	},
+  	{
+  		value : MEM_USED, 
+		color: "rgba(255,34,34,1)",
+		title : "Memory Used: " + MEM_USED
+  	 }
+];
+
+var mydata3 =   [
+    {
+   		value : DSK_FREE,
+		color: "rgba(175,175,175,1)",
+		title : "Disk Available: " + DSK_FREE
+   	},
+  	{
+  		value : DSK_USED, 
+		color: "rgba(255,34,34,1)",
+		title : "Disk Used: " + DSK_USED
+  	 }
+];
+  
+function dispPct1(numtxt,valtxt,ctx,config,posX,posY,borderX,borderY,overlay,data,animPC)
+{
+          return(Math.round(animPC*data[0].value));
+} 
+
+
+ var opt1 = {
+	  canvasBorders : true,
+      canvasBordersWidth : 2,
+      canvasBordersColor : "black",
+      graphTitle : "CPU STATUS",
+	  graphTitleFontSize: 18,
+      
+      crossTextAlign : ["center"],
+      crossTextBaseline : ["middle"],
+
+	  animationEasing : "linear",
+      crossText : ["%call function..."],
+      crossTextOverlay :   [true],
+      crossTextFontSize : [50],
+      crossTextFontColor : ["black"],
+      crossTextRelativePosX : [2],
+      crossTextRelativePosY : [2],
+      crossTextFunction : dispPct1,
+
+
+ 	  inGraphDataShow : false,  
+      legend : true,
+      canvasBorders : false,
+	  annotateDisplay : false,
+	  multiGraph : true,
+
+	  spaceTop : 30,
+	  spaceBottom : (defCanvasHeight)/3,
+	  spaceLeft : 0,
+	  spaceRight : defCanvasWidth/3*2
+	 
+}
+
+
+function dispPct2(numtxt,valtxt,ctx,config,posX,posY,borderX,borderY,overlay,data,animPC)
+{
+          return(Math.round(animPC*data[0].value));
+} 
+
+var opt2 = {
+	  canvasBorders : true,
+      canvasBordersWidth : 2,
+      canvasBordersColor : "black",
+      graphTitle : "MEMORY STATUS",
+	  graphTitleFontSize: 18,
+      
+      crossTextAlign : ["center"],
+      crossTextBaseline : ["middle"],
+
+	  animationEasing : "linear",
+      crossText : ["%call function..."],
+      crossTextOverlay :   [true],
+      crossTextFontSize : [50],
+      crossTextFontColor : ["black"],
+      crossTextRelativePosX : [2],
+      crossTextRelativePosY : [2],
+      crossTextFunction : dispPct2,
+
+
+ 	  inGraphDataShow : false,  
+      legend : true,
+      canvasBorders : false,
+	  annotateDisplay : false,
+	  multiGraph : true,
+
+	  spaceTop : 30,
+	  spaceBottom : (defCanvasHeight)/3,
+	  spaceLeft : defCanvasWidth/3,
+	  spaceRight : defCanvasWidth/3
+  }
+
+function dispPct3(numtxt,valtxt,ctx,config,posX,posY,borderX,borderY,overlay,data,animPC)
+{
+          return(Math.round(animPC*data[0].value));
+} 
+
+ var opt3 = {
+	  canvasBorders : true,
+      canvasBordersWidth : 2,
+      canvasBordersColor : "black",
+      graphTitle : "DISK STATUS",
+	  graphTitleFontSize: 18,
+      
+      crossTextAlign : ["center"],
+      crossTextBaseline : ["middle"],
+
+	  animationEasing : "linear",
+      crossText : ["%call function..."],
+      crossTextOverlay :   [true],
+      crossTextFontSize : [50],
+      crossTextFontColor : ["black"],
+      crossTextRelativePosX : [2],
+      crossTextRelativePosY : [2],
+      crossTextFunction : dispPct3,
+
+
+ 	  inGraphDataShow : false,  
+      legend : true,
+      canvasBorders : false,
+	  annotateDisplay : false,
+	  multiGraph : true,
+
+	  spaceTop : 30,
+	  spaceBottom : (defCanvasHeight)/3,
+	  spaceLeft : defCanvasWidth/3*2
+}
+
+   var ctx;
+   document.write("<canvas id=\"canvas_Multigraph\" height=\""+defCanvasHeight+"\" width=\""+defCanvasWidth+"\"></canvas>");
+   window.onload = function() {
+     var myGraph = new Chart(document.getElementById("canvas_Multigraph").getContext("2d"))
+     myGraph.Doughnut(mydata1,opt1,myGraph);
+     myGraph.Doughnut(mydata2,opt2,myGraph);
+     myGraph.Doughnut(mydata3,opt3,myGraph);
+ 
+ }
+</script>
+</center>
+<script>
+var timer =  setInterval('refresh_start()', 3000);
+</script>
+</body>
+</html>

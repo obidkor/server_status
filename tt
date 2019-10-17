@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w    3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+  <html>
+  <head>
+      <!--[if lte IE 8]><SCRIPT src='source/excanvas.js'></script><![endif]--><SCRIPT src='./ChartNew/ChartNew.js'></script>
+       <title>KOREA POLYTECHS</title>
+   <script>
+           function refresh_start(){
+                  location.href='serverstatus2.html'
+          }
+  </script>
+ 
+  </head>
+ 
+  <body id="wrapBody" class="container" >
+ 
+  <center>
+ 
+  <h1><table><tr><td> STATUS OF KOPOSW00<td></tr></table></h1>
+ 
+  <SCRIPT>
+ 
+
+
